@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -34,6 +34,6 @@ Route::post('comment', 'CommentsController@postComment');
 
 // This will specify to use our AdminMiddleware before proceeding with the routing. */
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
-    Route::get('tickets/{open_only}', 'TicketsController@index');
-    Route::post('close_ticket/{ticket_id}', 'TicketsController@close');
+	Route::get('tickets/{open_only}', 'TicketsController@index');
+	Route::post('close_ticket/{ticket_id}', 'TicketsController@close');
 });
