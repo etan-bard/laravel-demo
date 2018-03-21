@@ -34,6 +34,6 @@ Route::post('comment', 'CommentsController@postComment');
 
 // This will specify to use our AdminMiddleware before proceeding with the routing. */
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
-    Route::get('tickets', 'TicketsController@index');
+    Route::get('tickets/{open_only}', 'TicketsController@index');
     Route::post('close_ticket/{ticket_id}', 'TicketsController@close');
 });

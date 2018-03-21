@@ -65,8 +65,18 @@ class TicketsController extends Controller {
 	}
 
 	/* This will retrieve all tickets. */
-	public function index() {
-    	$tickets = Ticket::paginate(10);
+	public function index($open_only) {
+
+    	// If only open tickets are requested, then we will limit our query to only show open tickets.
+    	$tickets;
+		if($open_only === 'true') {
+			Log::debug('Open tickets only');
+    		$tickets = Ticket::where('status', 'Open')->paginate(10);
+    	} else {
+    		Log::debug('All tickets');
+    		$tickets = Ticket::paginate(10);
+    	}
+    	
     	$categories = Category::all();
 
     	return view('tickets.index', compact('tickets', 'categories'));
