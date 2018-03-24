@@ -1,6 +1,12 @@
 <?php
 
-namespac
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Support\Facades\Auth;
+
+class AdminMiddleware
+{
 	/**
 	 * Handle an incoming request.
 	 *
@@ -18,10 +24,3 @@ namespac
 		return $next($request);
 	}
 }
-e App\Http\Middleware;
-
-use Closure;
-use Illuminate\Support\Facades\Auth;
-
-class AdminMiddleware
-{
